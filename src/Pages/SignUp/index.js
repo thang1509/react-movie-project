@@ -95,7 +95,7 @@ class SignUp extends Component {
                         <ErrorMessage name="maNhom"/>
                     </div>
                     <div className="text-center">
-                        <button className="btn btn-success">submit</button>
+                        <button style={{display:"flex",margin:"auto"}} className="btn btn-success">Dang Ki</button>
                     </div>
                 </Form>
                 )}/>

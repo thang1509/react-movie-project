@@ -46,7 +46,7 @@ export default function  SignIn() {
                     <label>Mat Khau</label>
                     <Field type="password" className="form-control"  name="matKhau" onChange={handleChange}/>
                 </div>
-                <button className="btn btn-success">Dang Nhap</button>
+                <button style={{display:"flex",margin:"auto"}} className="btn btn-success">Dang Nhap</button>
             </Form>
             )}
         />

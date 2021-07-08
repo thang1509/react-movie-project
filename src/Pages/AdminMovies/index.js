@@ -30,6 +30,10 @@ export default function AdminMovies() {
   if (moviesSearch) {
     cssTimKiem = "timKiem";
   }
+  const handleChangeFilm = (item)=>{
+    console.log(item);                  
+    dispatch({type:"SUA_PHIM",payload:item})
+  }
   const handleChange = (event) => {
     const { value } = event.target;
     dispatch({type:"SUA_PHIM_",payload:value})
@@ -248,6 +252,7 @@ export default function AdminMovies() {
 
           <tbody>
             {moviesSearch ? (
+              
               <>
                 <tr>
                   <td>{moviesSearch.tenPhim}</td>
@@ -262,8 +267,18 @@ export default function AdminMovies() {
                   <td>{moviesSearch.ngayKhoiChieu}</td>
                   <td className="text-center">{moviesSearch.danhGia}</td>
                   <td>
-                    <i type="button" class="fa fa-edit mx-2"></i>
-                    <i type="button" class="fa fa-trash"></i>
+                  <button onClick={()=>{handleChangeFilm(moviesSearch)}}  className="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
+    Update
+  </button>
+  <div>
+  {/* Button trigger modal */}
+  <button type="button" onClick={()=>{handleChangeFilm(moviesSearch)}}  className="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId1">
+    Xóa
+  </button>
+ 
+  {/* Modal */}
+ 
+</div>
                   </td>
                 </tr>
               </>
@@ -451,13 +466,13 @@ export default function AdminMovies() {
     <div className="modal-dialog" role="document">
       <div className="modal-content">
         <div className="modal-header">
-          <h5 className="modal-title">Modal title</h5>
+          <h5 className="modal-title">Xoa Phim</h5>
           <button type="button" className="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
         <div className="modal-body">
-          Body
+          Xac Nhan Xoa Phim Ra Khoi Danh Sach
         </div>
         <div className="modal-footer">
           <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
