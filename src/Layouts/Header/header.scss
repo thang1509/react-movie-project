@@ -1,0 +1,48 @@
+.logo{
+    width: 50%;
+}
+
+.navbar{
+  
+    .collapse{
+        .navbar-nav{
+            .nav-item{
+               .nav-link{
+                   margin: 5px;
+                   &:hover{
+                       color: #fb4226;
+                   }
+               } 
+            }
+            .coll{
+                text-decoration: none;
+                color: black;
+                &:hover{
+                    color: #fb4226;
+                }
+            }
+        }
+    }
+}
+.modal-dialog{
+    margin-left: 30%;
+}
+.modal-content{
+    border: none;
+   
+}
+.header{
+   z-index: 1;
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+  
+}
+@media screen and(max-width:991px){
+    .header{
+        .ul{
+            display: none;
+        }
+    }
+}

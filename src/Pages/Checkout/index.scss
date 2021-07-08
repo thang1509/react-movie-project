@@ -1,0 +1,65 @@
+.checkout{
+    margin:100px 0 ;
+    .screen{
+        border-bottom: 50px solid orange;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        height: 100px;
+        width: 100%;
+        filter: drop-shadow(4px 30px 20px gray);
+        font-size: 25px;
+        color: white;
+    }
+    .ghedadat{
+        border: 3px solid orange;
+        background: orange;
+        color: black;
+        cursor: pointer;
+        border-radius: 5px;
+        width: 30px;
+        height: 30px;
+    }
+    .ghedangdat{
+        border: 3px solid green;
+        background: green;
+        color: black;
+        cursor: pointer;
+        border-radius: 5px;
+        width: 30px;
+        height: 30px;
+        margin: 0 2%;
+    }
+    .ghechuadat{
+        border: 3px solid gray;
+        background: gray;
+        color: black;
+        cursor: pointer;
+        border-radius: 5px;
+        width: 30px;
+        height: 30px;
+        margin: 0 2%;
+    }
+    .content{
+        border-bottom:1px solid  #ebebec;
+       
+    }
+    .ghe{
+        .row{
+            margin-top: 70px;
+            margin-left: 4%;
+            margin-right: 0;
+        }
+    }
+    .chuadat{
+        color: gray;
+    }
+    .dadat{
+        color: orange;
+        cursor: no-drop;
+    }
+    .dangdat{
+       color: green;
+     }
+    
+    
+}

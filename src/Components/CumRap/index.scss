@@ -1,0 +1,35 @@
+.cumRap{
+    margin-top: 50px;
+    img{
+        width: 100%;
+        height: auto;
+    }
+}
+
+.tab-content{
+    margin-top: 0;
+    p{
+        font-weight: 600;
+        font-size: 18px;
+    }
+}
+.cumRap{
+    .row{
+        border: 1px solid #ebebec;
+    }
+    .col-6{
+        border-left: 1px solid #ebebec;
+    }
+}
+.nav-pills .nav-link.active{
+    background: none;
+    color: black;
+    opacity: 1;
+}
+.nav-pills .nav-link{
+    color: black;
+    opacity: 0.5;
+    &:hover{
+        opacity: 1;
+    }
+}

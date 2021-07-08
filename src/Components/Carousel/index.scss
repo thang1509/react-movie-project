@@ -1,0 +1,29 @@
+.carousel-inner{
+    position: relative;
+    &:hover{
+        .button{
+            a{
+                color: white;
+                opacity: 1;   
+            }
+        }
+        
+    }
+    .button{
+        a{
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            font-size: 80px;
+            color: white;
+            opacity: 0.8;
+           
+        }
+       
+    }
+}
+
+.carousel{
+    margin-top: 70px;
+    z-index: 0;
+}

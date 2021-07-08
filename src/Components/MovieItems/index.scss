@@ -1,0 +1,43 @@
+.fa-play{
+    
+  color: white;
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 50%;
+  display: none;
+  text-decoration: none;
+
+  &:hover{
+      opacity: 0.8;
+  }
+}
+.link{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    text-decoration: none;
+ 
+}
+.movie-item{
+    
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    p{
+        margin: 10px 0;
+       color: black;
+    }
+    .tag{
+        position: relative;
+        text-decoration: none;
+        
+    }
+    &:hover{
+        .link{
+            text-decoration: none;
+        }
+        .link1{
+            display: block;
+            
+        }
+    }
+}

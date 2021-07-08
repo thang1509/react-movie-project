@@ -1,0 +1,153 @@
+.detail{
+    .row{
+        align-items: center;
+    }
+    .img{
+        filter: blur(15px);
+        margin: -11px 0 -5px -10px;
+        width: calc(100% + 5px);
+        width: 100%;
+        height:700px;
+        z-index: 0;
+    }
+    .styr{
+        position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    }
+    .img1{
+        height: auto;
+        width: 100%;
+    }
+    .detail1{
+        position: absolute;
+        top: 5%;
+        width: 100%;
+        left: 20%;
+        p{
+            color: white;
+          
+        }
+        .MuiBox-root-12 {
+            inset: 36px;
+        }
+        .MuiTypography-colorTextSecondary {
+            color: white;
+            font-size: 20px;
+        }
+        .MuiBox-root-6 {
+            inset: 33px;
+            display: flex;
+            position: absolute;
+            align-items: baseline;
+            justify-content: center;
+        }
+        .MuiCircularProgress-colorPrimary {
+            color: #7ed321;
+            border: 4px solid #3a3a3a;
+            border-radius: 50%;
+        }
+       
+      .play{
+          position: relative;
+          &:hover{
+              .fa-play{
+                  display: block;
+              }
+          }
+      }
+      .play1{
+          position: absolute;
+          top: 45%;
+          left: 40%;
+          text-decoration: none;
+      }
+      .fa-play{
+        color: white;
+        border: 1px solid white;
+        padding: 10px;
+        border-radius: 50%;
+      display: none;
+        &:hover{
+            opacity: 0.8;
+        }
+      }
+
+    }
+    
+   .row{
+       margin-top: 100px;
+   }
+   .text{
+       display: flex;
+       justify-content: first baseline;
+       align-items: center;
+       p{
+           color: white;
+           font-size: 20px;
+       }
+       .text1{
+           font-weight: 600;
+           font-size: 30px;
+       }
+   }
+   .col-2{
+       display: flex;
+   }
+
+
+}
+.info{
+    background-color: rgb(10, 32, 41);
+    z-index: 999;
+  .row{
+      margin-top: 30px;
+      justify-content: center;
+      align-items: baseline;
+      color: white;
+  }
+  ul{
+      display: flex;
+      justify-content: center;
+      .nav-link.active{
+          color: white;
+          font-size: 20px;
+          color: #fb4226;
+          transform: scale(1.2);
+          &:hover{
+              transform: scale(1.2);
+              color: #fb4226;
+          }
+      }
+      .nav-link{
+        color: white;
+        font-size: 20px;
+        transition: all .5s;
+        &:hover{
+            transform: scale(1.2);
+            color: #fb4226;
+        }
+    }
+  }
+  .lichChieu{
+    img{
+        width: 100%;
+        height: auto;
+    }
+    button{
+        margin: 10px;
+    }
+    .nav-link.active{
+        color: white;
+    }
+    .nav-link{
+        color: white;
+    }
+    .link1{
+        text-decoration: none;
+    }
+  }
+ 
+}
