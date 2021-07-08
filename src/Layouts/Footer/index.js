@@ -9,17 +9,17 @@ export default function Footer() {
         <div className="footer">
             <div className="container">
                 <div className="row">
-                    <div className="col-2 footer-item">
+                    <div className="col-md-2 col-6 footer-item">
                         <p>Tix</p>
                         <p>FAQ</p>
                         <p>Brand Guidelines</p>
                     </div>
-                    <div className="col-2 footer-item">
+                    <div className="col-md-2 col-6 footer-item">
                         <p className="none">Tix</p>
                         <p>Thỏa thuận sử dụng</p>
                         <p>Chính sách bảo mật</p>
                     </div>
-                    <div className="col-4 footer-item">
+                    <div className="col-md-4 col-12 footer-item">
                         <p>Đối tác</p>
                         <div className="row">
                             <div className="col-3"><img className="img-fluid" src={img} alt=""/></div>
@@ -32,7 +32,7 @@ export default function Footer() {
                             <div className="col-3"><img className="img-fluid" src={img} alt=""/></div>
                         </div>
                     </div>
-                    <div className="col-2 footer-item" >
+                    <div className="col-md-2 col-6 footer-item" >
                         <p className="text">Mobile App</p>
                         <div className=" moblie">
                         <i class="fab fa-apple"></i>
@@ -40,7 +40,7 @@ export default function Footer() {
                         </div>
                         
                     </div>
-                    <div className="col-2 footer-item">
+                    <div className="col-md-2 col-6 footer-item">
                         <p className="text">Social</p>
                         <div className="social">
                         <i class="fab fa-facebook"></i>

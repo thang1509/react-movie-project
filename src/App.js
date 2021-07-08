@@ -7,9 +7,6 @@ import {BrowserRouter,Redirect,Route,Switch} from 'react-router-dom'
 import Header from './Layouts/Header';
 import SignIn from './Pages/SignIn';
 
-
-import {useDispatch,useSelector} from 'react-redux'
-
 import AdminLayout from './Layouts/AdminLayout';
 import AppLayout from './Layouts/AppLayout';
 import AdminRoute from './auth/AdminRoute';

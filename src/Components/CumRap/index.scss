@@ -1,11 +1,18 @@
 .cumRap{
     margin-top: 50px;
     img{
-        width: 100%;
-        height: auto;
+        width: 50%;
+        height: 50px;
     }
 }
-
+@media screen and (max-width:768px){
+    .cumRap{
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+}
 .tab-content{
     margin-top: 0;
     p{
@@ -25,10 +32,14 @@
     background: none;
     color: black;
     opacity: 1;
+    text-align: center;
+    font-weight: 600;
 }
+
 .nav-pills .nav-link{
     color: black;
     opacity: 0.5;
+    text-align: center;
     &:hover{
         opacity: 1;
     }

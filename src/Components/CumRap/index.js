@@ -29,7 +29,7 @@ export default function CumRap() {
   return (
     <div className="container cumRap">
       <div class="row">
-        <div class="col-1">
+        <div class="col-2">
           <div
             class="nav flex-column nav-pills"
             id="v-pills-tab"
@@ -63,7 +63,7 @@ export default function CumRap() {
             })}
           </div>
         </div>
-        <div class="col-11">
+        <div class="col-10">
           <div class="tab-content" id="v-pills-tabContent">
             {cumRap.map((item, index) => {
               if (index === 0) {
