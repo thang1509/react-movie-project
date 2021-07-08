@@ -25,7 +25,7 @@ export default function Header() {
   <div className="collapse navbar-collapse nav" id="navbarSupportedContent">
   <ul className="navbar-nav ul mx-auto">
         <li className="nav-item">
-            <NavLink exact to="/" className="nav-link" href="#lichchieu">Lịch Chiếu</NavLink>
+            <NavLink exact to="/" className="nav-link" href="">Lịch Chiếu</NavLink>
         </li>
         <li className="nav-item">
             <NavLink exact to="/" className="nav-link" href="/">Cụm Rạp</NavLink>
@@ -39,9 +39,9 @@ export default function Header() {
     </ul>
     <ul className="navbar-nav ul">
         {credentials ? <li className="nav-item">
-            <a  id="nam"  data-toggle="collapse" href="#collapseExample"  className="nav-link">Hi, {credentials.hoTen}  </a>
+            <a id="nam"  data-toggle="collapse" href="#collapseExample"  className="nav-link">Hi, {credentials.hoTen}  </a>
             <div class="collapse" id="collapseExample">
-                <a className="coll" href="" onClick={handleOut}>Đăng Xuất</a>
+                <a style={{display:"flex",justifyContent:"center"}} className="coll" href="" onClick={handleOut}>Đăng Xuất</a>
             </div>
         </li>: <> <li className="nav-item">
             <NavLink to="/signup" className="nav-link" href="/signup">Đăng Kí</NavLink>
@@ -68,7 +68,10 @@ export default function Header() {
             <NavLink exact to="/" className="nav-link" href="/">Ứng Dụng</NavLink>
         </li>
         {credentials ? <li className="nav-item">
-            <span className="nav-link">Hi, {credentials.hoTen} </span>
+            <span type="button" data-toggle="collapse" href="#collapseExample" className="nav-link">Hi, {credentials.hoTen} </span>
+            <div class="collapse" id="collapseExample">
+                <a style={{display:"flex",justifyContent:"center"}} className="coll" href="" onClick={handleOut}>Đăng Xuất</a>
+            </div>
         </li>: <> <li className="nav-item">
             <NavLink to="/signup" className="nav-link" href="/signup">Đăng Kí</NavLink>
         </li>

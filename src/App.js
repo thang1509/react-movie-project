@@ -1,5 +1,4 @@
-import {lazy, Suspense} from 'react'
-import logo from './logo.svg';
+import { Suspense} from 'react'
 import './App.css';
 import Home from './Pages/Home';
 import Detail from './Pages/Detail';
@@ -8,9 +7,9 @@ import {BrowserRouter,Redirect,Route,Switch} from 'react-router-dom'
 import Header from './Layouts/Header';
 import SignIn from './Pages/SignIn';
 
-import {useEffect} from 'react'
+
 import {useDispatch,useSelector} from 'react-redux'
-import { FETCH_CREDENTIALS } from './Redux/Action/type';
+
 import AdminLayout from './Layouts/AdminLayout';
 import AppLayout from './Layouts/AppLayout';
 import AdminRoute from './auth/AdminRoute';
@@ -21,8 +20,8 @@ import Checkout from './Pages/Checkout';
 
 
 function App() {
-  const {credentials} = useSelector((state)=>state.user)
-  const dispatch = useDispatch()
+
+ 
   //Duy trì đăng nhập khi load lại trang
   // const getCredentialsFromLocal = () =>{
   //   const credentialsStr = localStorage.getItem('credentials');

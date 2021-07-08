@@ -32,11 +32,11 @@ export default function Home() {
   }
   return (
     <>
-      <div className="my-5">
+      <div  className="my-5">
         <Carousel />
       </div>
-        <div>
-          <div className="container">
+        <div id="lichChieu">
+          <div className="container" >
             <div>
               <ul className="item nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li className="nav-item" role="presentation">
@@ -77,7 +77,7 @@ export default function Home() {
                     {movies.map((item, index) => {
                       if (index <= 7) {
                         return (
-                          <div key={index} className="col-3">
+                          <div key={index} className="col-6 col-lg-3">
                             <MovieItems item={item} />
                           </div>
                         );
