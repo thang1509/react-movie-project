@@ -17,6 +17,9 @@ export function admin(values){
         adminService.themPhim(values).then((result)=>{
             console.log(result);
             dispatch({type:THEM_PHIM_SUCCESS,payload:{data:result.data}})
+            if(result){
+                return window.location.reload()
+            }
         }).catch((error)=>{
             dispatch({type:THEM_PHIM_FAILURE,payload:{error:error.response.data}})
                 console.log(error.response.data);
