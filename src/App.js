@@ -1,21 +1,23 @@
-import { Suspense} from 'react'
+import {lazy, Suspense} from 'react'
 import './App.css';
-import Home from './Pages/Home';
-import Detail from './Pages/Detail';
-import SignUp from './Pages/SignUp';
+
 import {BrowserRouter,Redirect,Route,Switch} from 'react-router-dom'
 import Header from './Layouts/Header';
-import SignIn from './Pages/SignIn';
+
 
 import AdminLayout from './Layouts/AdminLayout';
 import AppLayout from './Layouts/AppLayout';
 import AdminRoute from './auth/AdminRoute';
 import Loading from '../src/Pages/Loading'
-import AdminUsers from './Pages/AdminUsers';
-import AdminMovies from './Pages/AdminMovies';
-import Checkout from './Pages/Checkout';
 
 
+const Home = lazy(()=>import("./Pages/Home"))
+const Detail = lazy(()=>import("./Pages/Detail"))
+const SignIn = lazy(()=>import("./Pages/SignIn"))
+const SignUp = lazy(()=>import("./Pages/SignUp"))
+const Checkout = lazy(()=>import("./Pages/Checkout"))
+const AdminUsers = lazy(()=>import("./Pages/AdminUsers"))
+const AdminMovies = lazy(()=>import("./Pages/AdminMovies"))
 function App() {
 
  

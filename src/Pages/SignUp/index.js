@@ -50,7 +50,7 @@ class SignUp extends Component {
                         <h1 className="text-center">Sign Up</h1>
                     <div className="form-group">
                         <label>Tai Khoan</label>
-                        <Field type="text" name="taiKhoan" onChange={formikProps.handleChange} className="form-control"/>
+                        <Field type="text"  name="taiKhoan" onChange={formikProps.handleChange} className="form-control"/>
                         <ErrorMessage name="taiKhoan"/>
                     </div>
                     <div className="form-group">
@@ -99,6 +99,7 @@ class SignUp extends Component {
                     </div>
                 </Form>
                 )}/>
+               
             </div>
         )
     }
