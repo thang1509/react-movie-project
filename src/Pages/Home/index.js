@@ -35,7 +35,7 @@ export default function Home() {
       <div  className="my-5">
         <Carousel />
       </div>
-        <div id="lichChieu">
+        <div id="lichchieu">
           <div className="container" >
             <div>
               <ul className="item nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -107,7 +107,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-                    <CumRap/>
+                    <CumRap id="cumrap"/>
                     <News/>
                     <App/>
     </>

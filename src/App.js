@@ -32,7 +32,7 @@ function App() {
   //  getCredentialsFromLocal()
   // },[])
   return (
-    <Suspense fallback={<div ><Loading/></div>}>
+    <Suspense fallback={<Loading/>}>
    <BrowserRouter>
      <Header/>
     <Switch>

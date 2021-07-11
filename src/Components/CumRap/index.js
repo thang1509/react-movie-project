@@ -27,7 +27,7 @@ export default function CumRap() {
   }
   
   return (
-    <div className="container cumRap">
+    <div className="container cumRap "id="cumrap">
       <div class="row">
         <div class="col-2">
           <div

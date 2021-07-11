@@ -11,6 +11,9 @@ const adminService ={
     },
     capNhatPhim:(form_data)=>{
         return axiosClient.post('/QuanLyPhim/CapNhatPhimUpload',form_data)
+    },
+    danhSachNguoiDung:()=>{
+        return axiosClient.get("/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP02")
     }
     // themPhim(data){
     //     return Axios({

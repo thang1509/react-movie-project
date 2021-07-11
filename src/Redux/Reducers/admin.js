@@ -1,5 +1,5 @@
 import { number } from "yup/lib/locale"
-import { THEM_PHIM_FAILURE, THEM_PHIM_RESPONSE, THEM_PHIM_SUCCESS, XOA_PHIM } from "../Action/type"
+import { DANH_SACH_NGUOI_DUNG, THEM_PHIM_FAILURE, THEM_PHIM_RESPONSE, THEM_PHIM_SUCCESS, XOA_PHIM } from "../Action/type"
 
 const initialState ={
     moviesSearch:null,
@@ -18,7 +18,9 @@ const initialState ={
         ngayKhoiChieu: "",
         danhGia: 0,
     },
-    xoaPhim:{}
+    xoaPhim:{},
+    dsNguoiDung:[],
+    findUser:null
 }
 
 function adminReducer(state=initialState,action){
@@ -87,6 +89,13 @@ function adminReducer(state=initialState,action){
         }
         case XOA_PHIM:{
             return {...state,xoaPhim:action.payload}
+        }
+        case DANH_SACH_NGUOI_DUNG:{
+            return{...state,dsNguoiDung:action.payload}
+        }
+        case "TIM_USER":{
+            state.findUser=state.dsNguoiDung.find(item=>item.taiKhoan===action.payload)
+            return{...state}
         }
         default:
             return {...state}

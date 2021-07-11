@@ -25,10 +25,10 @@ export default function Header() {
   <div className="collapse navbar-collapse nav" id="navbarSupportedContent">
   <ul className="navbar-nav ul mx-auto">
         <li className="nav-item">
-            <NavLink exact to="/" className="nav-link" href="">Lịch Chiếu</NavLink>
+            <a className="nav-link" href="#lichchieu">Lich Chiếu</a>
         </li>
         <li className="nav-item">
-            <NavLink exact to="/" className="nav-link" href="/">Cụm Rạp</NavLink>
+            <a className="nav-link" href="#cumrap">Cụm Rạp</a>
         </li>
         <li className="nav-item">
             <NavLink exact to="/" className="nav-link" href="/">Tin Tức</NavLink>
@@ -56,7 +56,7 @@ export default function Header() {
     </ul>
     <ul className="navbar-nav mx-auto d-lg-none">
     <li className="nav-item"> 
-            <NavLink exact to="/" className="nav-link" href="/">Lịch Chiếu</NavLink>
+            <a className="nav-link" href="#lichchieu">Lich Chiếu</a>
         </li>
         <li className="nav-item">
             <NavLink exact to="/" className="nav-link" href="/">Cụm Rạp</NavLink>

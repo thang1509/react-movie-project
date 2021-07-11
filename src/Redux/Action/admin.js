@@ -1,5 +1,5 @@
 import adminService from "../../Services/admin"
-import { CAP_NHAT_PHIM, THEM_PHIM_FAILURE, THEM_PHIM_RESPONSE, THEM_PHIM_SUCCESS, XOA_PHIM } from "./type"
+import { CAP_NHAT_PHIM, DANH_SACH_NGUOI_DUNG, THEM_PHIM_FAILURE, THEM_PHIM_RESPONSE, THEM_PHIM_SUCCESS, XOA_PHIM } from "./type"
 
 export function admin(values){
     return (dispatch)=>{
@@ -50,6 +50,15 @@ export function capNhatFilm(value){
             if(res){
                 return window.location.reload()
             }
+        }).catch((error)=>{
+            alert(error.response.data)
+        })
+    }
+}
+export function danhSachNguoiDung(){
+    return (dispatch)=>{
+        adminService.danhSachNguoiDung().then((res)=>{
+            dispatch({type:DANH_SACH_NGUOI_DUNG,payload:res.data})
         }).catch((error)=>{
             alert(error.response.data)
         })

@@ -1,9 +1,15 @@
 .logo{
     width: 50%;
 }
-
+html {
+    scroll-behavior: smooth;
+  }
 .navbar{
-  
+    .nav-item{
+        .nav-link{
+            color: black;
+        }
+    }
     .collapse{
         .navbar-nav{
             .nav-item{
