@@ -9,6 +9,7 @@ import { datGhe, huyGhe, doiGheDaDat } from "../../Redux/Action/datghe";
 import { muaVe } from "../../Redux/Action/muave";
 
 export default function Checkout() {
+  document.documentElement.scrollTop = 0;
   const { check } = useParams();
   const { checkOut, isLoading, dsGhe,dsGheDangDat,muave} = useSelector((state) => state.checkout);
   const {credentials} = useSelector((state)=>state.user)
@@ -77,8 +78,8 @@ const values ={
             <div className="ghe container">
                 <div className="row">
                 {dsGhe.map((item,index)=>{
-                  let cssGheChuaDat ='chuadat'
-                  let cssGheDangDat = ''
+                  let cssGheDangDat ='chuadat'
+                  // let cssGheDangDat = ''
                   let indexGheDangDat = dsGheDangDat.findIndex(gheDangDat=>gheDangDat.maGhe === item.maGhe)
                   if(indexGheDangDat !== -1){
                     cssGheDangDat='dangdat'
@@ -96,7 +97,7 @@ const values ={
                     }else{
                         return(
                             <div key={index} className="col-1 p-1">
-                           <button type="button"   onClick={()=>{handleGhe(item)}}><i className={`${cssGheChuaDat} fa fa-couch ${cssGheDangDat}`} />
+                           <button type="button"   onClick={()=>{handleGhe(item)}}><i className={` fa fa-couch ${cssGheDangDat}`} />
                         </button> 
                         </div>
                         )

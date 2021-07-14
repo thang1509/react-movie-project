@@ -1,5 +1,5 @@
 import adminService from "../../Services/admin"
-import { CAP_NHAT_PHIM, DANH_SACH_NGUOI_DUNG, THEM_PHIM_FAILURE, THEM_PHIM_RESPONSE, THEM_PHIM_SUCCESS, XOA_PHIM } from "./type"
+import { CAP_NHAT_NGUOI_DUNG, CAP_NHAT_PHIM, DANH_SACH_NGUOI_DUNG, THEM_NGUOI_DUNG, THEM_PHIM_FAILURE, THEM_PHIM_RESPONSE, THEM_PHIM_SUCCESS, XOA_PHIM } from "./type"
 
 export function admin(values){
     return (dispatch)=>{
@@ -48,6 +48,7 @@ export function capNhatFilm(value){
         adminService.capNhatPhim(value).then((res)=>{
             dispatch({type:CAP_NHAT_PHIM,payload:res.data})
             if(res){
+                alert("Them Thanh Cong")
                 return window.location.reload()
             }
         }).catch((error)=>{
@@ -59,6 +60,33 @@ export function danhSachNguoiDung(){
     return (dispatch)=>{
         adminService.danhSachNguoiDung().then((res)=>{
             dispatch({type:DANH_SACH_NGUOI_DUNG,payload:res.data})
+        }).catch((error)=>{
+            alert(error.response.data)
+        })
+    }
+}
+
+export function themNguoiDung(values){
+    return (dispatch)=>{
+        adminService.themNguoiDung(values).then((res)=>{
+            dispatch({type:THEM_NGUOI_DUNG,payload:res.data})
+            if(res){
+                return window.location.reload()
+            }
+        }).catch((error)=>{
+            alert(error.response.data)
+        })
+    }
+}
+
+export function capNhatNguoiDung(values){
+    return (dispatch)=>{
+        adminService.capNhatNguoiDung(values).then((res)=>{
+            dispatch({type:CAP_NHAT_NGUOI_DUNG,payload:values})
+            if(res){
+                alert("Cap Nhat Thanh Cong!")
+                return window.location.reload()
+            }
         }).catch((error)=>{
             alert(error.response.data)
         })

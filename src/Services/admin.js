@@ -14,6 +14,12 @@ const adminService ={
     },
     danhSachNguoiDung:()=>{
         return axiosClient.get("/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP02")
+    },
+    themNguoiDung:(data)=>{
+        return axiosClient.post("/QuanLyNguoiDung/ThemNguoiDung",data)
+    },
+    capNhatNguoiDung:(data)=>{
+        return axiosClient.put("/QuanLyNguoiDung/CapNhatThongTinNguoiDung",data)
     }
     // themPhim(data){
     //     return Axios({

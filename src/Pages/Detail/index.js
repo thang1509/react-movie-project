@@ -21,7 +21,7 @@ import Box from "@material-ui/core/Box";
 import { Link, Redirect, useParams } from "react-router-dom";
 
 function CircularProgressWithLabel(props) {
-
+  document.documentElement.scrollTop = 0;
 
   return (
     <Box position="relative" display="inline-flex">

@@ -13,6 +13,8 @@ import News from "../../Components/News";
 import App from "../../Components/App";
 
 export default function Home() {
+  document.documentElement.scrollTop = 0;
+
   const dispatch = useDispatch();
   const { movies, movieDetail, isLoading } = useSelector(
     (state) => state.movie
@@ -23,10 +25,9 @@ export default function Home() {
 
   if (isLoading) {
     return (
-      <div>
-          <Loading/>
+      <div style={{ margin: "100px 0" }}>
+        <Loading />
       </div>
-   
     
     );
   }

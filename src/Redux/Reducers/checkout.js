@@ -49,7 +49,7 @@ function checkoutService(state= initialState,action){
             return{...state}
         }
         case MUA_VE_REPOSNE:{
-            return{...state}
+            return{...state,isLoading:true}
         }
         case MUA_VE:{
             return{...state,muaVe:action.payload}
