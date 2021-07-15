@@ -6,8 +6,8 @@ import {userService} from '../../Services'
 
 
 const signupUserSchema = yup.object().shape({
-    taiKhoan:yup.string().required('*field is required!').matches(/^[a-z0-9._-]{6,15}$/,"tai khoan gom 6 ki tu tro len va bao gom so"),
-    matKhau:yup.string().required('*field is required!').matches(/^[a-z0-9._-]{6,15}$/,"mat khau gom 6 ki tu tro len va bao gom so"),
+    taiKhoan:yup.string().required('*field is required!').matches(/^([A-Za-z]){1}([\w_\.!@#$%^&*()]+){5,31}$/,"tai khoan gom 6 ki tu tro len"),
+    matKhau:yup.string().required('*field is required!').matches(/^([A-Z]){1}([\w_\.!@#$%^&*()]+){5,31}$/,"mat khau phai viet hoa chu cai dau tien va gom 6 ki tu tro len va bao gom so"),
     hoTen:yup.string().required('*field is required!').matches(/^[a-zA-Z\s]+$/,"ho ten khong hop le"),
     email:yup.string().required('*field is required!').email('*Email is invalid'),
     soDt:yup.string().required("*field is required!").matches(/^[0-9]+$/),
@@ -51,7 +51,7 @@ class SignUp extends Component {
                     <div className="form-group">
                         <label>Tai Khoan</label>
                         <Field type="text"  name="taiKhoan" onChange={formikProps.handleChange} className="form-control"/>
-                        <ErrorMessage name="taiKhoan"/>
+                        <ErrorMessage name="taiKhoan">{(msg) => <div className="alert alert-danger">{msg}</div>}</ErrorMessage>
                     </div>
                     <div className="form-group">
                         <label>Mat khau</label>
@@ -61,7 +61,7 @@ class SignUp extends Component {
                     <div className="form-group">
                         <label>Ho ten</label>
                         <Field type="text" className="form-control" name="hoTen" onChange={formikProps.handleChange}/>
-                        <ErrorMessage name="hoTen"/>
+                        <ErrorMessage name="hoTen">{(msg) => <div className="alert alert-danger">{msg}</div>}</ErrorMessage>
                     </div>
                     <div className="form-group">
                         <label>email</label>
