@@ -6,9 +6,9 @@ import {userService} from '../../Services'
 
 
 const signupUserSchema = yup.object().shape({
-    taiKhoan:yup.string().required('*field is required!'),
-    matKhau:yup.string().required('*field is required!'),
-    hoTen:yup.string().required('*field is required!'),
+    taiKhoan:yup.string().required('*field is required!').matches(/^[a-z0-9._-]{6,15}$/,"tai khoan gom 6 ki tu tro len va bao gom so"),
+    matKhau:yup.string().required('*field is required!').matches(/^[a-z0-9._-]{6,15}$/,"mat khau gom 6 ki tu tro len va bao gom so"),
+    hoTen:yup.string().required('*field is required!').matches(/^[a-zA-Z\s]+$/,"ho ten khong hop le"),
     email:yup.string().required('*field is required!').email('*Email is invalid'),
     soDt:yup.string().required("*field is required!").matches(/^[0-9]+$/),
     maNhom:yup.string().required('*field is required!'),
