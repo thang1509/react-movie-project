@@ -6,7 +6,8 @@ const initialState={
     movieDetail:{},
     heThongLichChieu:[],
     lichChieu:[],
-    error:null
+    error:null,
+    dsPhimTheoNgay:[]
 }
 
 function MovieReducer(state = initialState , action){
@@ -27,7 +28,9 @@ function MovieReducer(state = initialState , action){
         case FETCH_MOVIE_DETAIL_FAILURE:{
             return{...state,isLoading:false,error:action.payload.error}
             }
-       
+        // case "dsTheoNgay":{
+        //     return{...state,dsPhimTheoNgay:action.payload}
+        // }
         default:
             return state;
     }

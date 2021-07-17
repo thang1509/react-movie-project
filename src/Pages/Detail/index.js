@@ -270,10 +270,12 @@ export default function Detail() {
       {item.cumRapChieu.map((item,index)=>{
         if(index===0){
           return(
-            <div className="tab-pane fade show active" id={item.maCumRap} role="tabpanel" aria-labelledby="v-pills-home-tab">{
+            <div className="tab-pane scroll fade show active" id={item.maCumRap} role="tabpanel" aria-labelledby="v-pills-home-tab">{
               item.lichChieuPhim.map((item,index)=>{
                 return(
+                  <>
                  <Link className="link1" to={`/checkout/${item.maLichChieu}`}> <button className="btn btn-success">{item.ngayChieuGioChieu.slice(11,16)}</button></Link>
+                  </>
                 )
                 
               })
@@ -282,7 +284,7 @@ export default function Detail() {
         }
         else{
           return(
-            <div className="tab-pane fade" id={item.maCumRap} role="tabpanel" aria-labelledby="v-pills-profile-tab">{
+            <div className="tab-pane scroll fade" id={item.maCumRap} role="tabpanel" aria-labelledby="v-pills-profile-tab">{
               item.lichChieuPhim.map((item,index)=>{
                 return(
                   <Link className="link1" to={`/checkout/${item.maLichChieu}`}> <button className="btn btn-success">{item.ngayChieuGioChieu.slice(11,16)}</button></Link>
@@ -323,7 +325,7 @@ export default function Detail() {
       {item.cumRapChieu.map((item,index)=>{
         if(index===0){
           return(
-            <div className="tab-pane fade show active" id={item.maCumRap} role="tabpanel" aria-labelledby="v-pills-home-tab">{
+            <div className="tab-pane scroll fade show active" id={item.maCumRap} role="tabpanel" aria-labelledby="v-pills-home-tab">{
               item.lichChieuPhim.map((item,index)=>{
                 return(
                   <Link className="link1" to={`/checkout/${item.maLichChieu}`}> <button className="btn btn-success">{item.ngayChieuGioChieu.slice(11,16)}</button></Link>
@@ -335,7 +337,7 @@ export default function Detail() {
         }
         else{
           return(
-            <div className="tab-pane fade" id={item.maCumRap} role="tabpanel" aria-labelledby="v-pills-profile-tab">{
+            <div className="tab-pane scroll fade" id={item.maCumRap} role="tabpanel" aria-labelledby="v-pills-profile-tab">{
               item.lichChieuPhim.map((item,index)=>{
                 return(
                   <Link className="link1" to={`/checkout/${item.maLichChieu}`}> <button className="btn btn-success">{item.ngayChieuGioChieu.slice(11,16)}</button></Link>
