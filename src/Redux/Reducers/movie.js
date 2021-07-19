@@ -24,6 +24,9 @@ function MovieReducer(state = initialState , action){
         case FETCH_MOVIE_DETAIL_REQUSET:
             return{...state,isLoading:true,error:null}
         case FETCH_MOVIE_DETAIL:
+            state.dsPhimTheoNgay=action.payload.data.heThongRapChieu.map((item,index)=>{
+                return item
+            })
             return{...state,movieDetail:action.payload.data,heThongLichChieu:action.payload.data.heThongRapChieu,isLoading:false}
         case FETCH_MOVIE_DETAIL_FAILURE:{
             return{...state,isLoading:false,error:action.payload.error}

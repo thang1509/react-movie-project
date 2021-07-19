@@ -69,6 +69,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Detail() {
+  
   const { value } = useParams();
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -82,12 +83,14 @@ export default function Detail() {
   };
 
   const dispatch = useDispatch();
-  const { movieDetail, lichChieu, isLoading, heThongLichChieu } = useSelector(
+  const { movieDetail, lichChieu, isLoading, heThongLichChieu, dsPhimTheoNgay } = useSelector(
     (state) => state.movie
   );
+  const {ngayChieuGioChieu}= useSelector((state)=>state.ngay)
   const {credentials} = useSelector((state)=>state.user)
   useEffect(() => {
     dispatch(fetchMovieDetail(value));
+    dispatch({type:"NGAY_CHIEU"})
   }, []);
 
   if (isLoading) {
@@ -96,6 +99,10 @@ export default function Detail() {
   if(!credentials){
     return <Redirect to="/login"/>
   }
+ 
+  ngayChieuGioChieu.map((item)=>{
+    console.log(item);
+  })
   return (
     <>
       <Modal
@@ -271,14 +278,51 @@ export default function Detail() {
         if(index===0){
           return(
             <div className="tab-pane scroll fade show active" id={item.maCumRap} role="tabpanel" aria-labelledby="v-pills-home-tab">{
-              item.lichChieuPhim.map((item,index)=>{
-                return(
-                  <>
-                 <Link className="link1" to={`/checkout/${item.maLichChieu}`}> <button className="btn btn-success">{item.ngayChieuGioChieu.slice(11,16)}</button></Link>
-                  </>
-                )
-                
+              ngayChieuGioChieu.map((item1,index)=>{
+                if(index<10&&item.lichChieuPhim.find(item=>item.ngayChieuGioChieu.slice(0,10)===item1)){
+                  const ngay=item.lichChieuPhim.filter(item=>item.ngayChieuGioChieu.slice(0,10)===item1)
+                  return(
+                    <>
+                    <p>{item1}</p>
+                    
+                    {ngay.map((item,index)=>{
+                      
+                        return(
+                        <>
+                        <Link className="link1" to={`/checkout/${item.maLichChieu}`}> <button className="btn btn-success">{item.ngayChieuGioChieu.slice(11,16)}</button></Link>
+                        </>  
+                        )
+                    
+                    
+                  })}
+                    </>
+                  )
+                }
+               
               })
+                
+              
+               
+             
+            //     item.lichChieuPhim.map((item,index)=>{
+            //       ngayChieuGioChieu.map((item1,index)=>{
+            //       if(item1===item.ngayChieuGioChieu.slice(0,10)){
+            //         return(
+            //           <>
+            //           <p>{item1}</p>
+            //           <Link className="link1" to={`/checkout/${item.maLichChieu}`}> <button className="btn btn-success">{item.ngayChieuGioChieu.slice(11,16)}</button></Link>
+            //           </>
+            //         )
+            //       }
+            //       // return(
+            //       //   <div classname="row">
+            //       //   <p>{item.ngayChieuGioChieu.slice(0,10)}</p>
+            //       //  <Link className="link1" to={`/checkout/${item.maLichChieu}`}> <button className="btn btn-success">{item.ngayChieuGioChieu.slice(11,16)}</button></Link>
+            //       //   </div>
+            //       // )     
+            // })
+            //   })
+              
             }</div>
           )
         }
