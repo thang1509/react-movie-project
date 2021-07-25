@@ -279,31 +279,30 @@ export default function Detail() {
           return(
             <div className="tab-pane scroll fade show active" id={item.maCumRap} role="tabpanel" aria-labelledby="v-pills-home-tab">{
               ngayChieuGioChieu.map((item1,index)=>{
-                if(index<10&&item.lichChieuPhim.find(item=>item.ngayChieuGioChieu.slice(0,10)===item1)){
+                if(index<10){
                   const ngay=item.lichChieuPhim.filter(item=>item.ngayChieuGioChieu.slice(0,10)===item1)
                   return(
                     <>
                     <p>{item1}</p>
-                    
-                    {ngay.map((item,index)=>{
-                      
+                    {item.lichChieuPhim.map((item,index)=>{
+                      if(item.ngayChieuGioChieu.slice(0,10)===item1){
+                        return (
+                          <Link className="link1" to={`/checkout/${item.maLichChieu}`}> <button className="btn btn-success">{item.ngayChieuGioChieu.slice(11,16)}</button></Link>
+                        )
+                      }
+                    })}
+                    {/* {ngay.map((item,index)=>{
                         return(
                         <>
                         <Link className="link1" to={`/checkout/${item.maLichChieu}`}> <button className="btn btn-success">{item.ngayChieuGioChieu.slice(11,16)}</button></Link>
                         </>  
-                        )
-                    
-                    
-                  })}
+                        )  
+                  })} */}
                     </>
                   )
                 }
-               
               })
-                
-              
-               
-             
+            }</div>
             //     item.lichChieuPhim.map((item,index)=>{
             //       ngayChieuGioChieu.map((item1,index)=>{
             //       if(item1===item.ngayChieuGioChieu.slice(0,10)){
@@ -323,16 +322,28 @@ export default function Detail() {
             // })
             //   })
               
-            }</div>
+           
           )
         }
         else{
           return(
             <div className="tab-pane scroll fade" id={item.maCumRap} role="tabpanel" aria-labelledby="v-pills-profile-tab">{
-              item.lichChieuPhim.map((item,index)=>{
-                return(
-                  <Link className="link1" to={`/checkout/${item.maLichChieu}`}> <button className="btn btn-success">{item.ngayChieuGioChieu.slice(11,16)}</button></Link>
-                )
+              ngayChieuGioChieu.map((item1,index)=>{
+                if(index<10&&item.lichChieuPhim.filter(item=>item.ngayChieuGioChieu.slice(0,10)===item1)){
+                  const ngay=item.lichChieuPhim.filter(item=>item.ngayChieuGioChieu.slice(0,10)===item1)
+                  return(
+                    <>
+                    <p>{item1}</p>
+                    {ngay.map((item,index)=>{
+                        return(
+                        <>
+                        <Link className="link1" to={`/checkout/${item.maLichChieu}`}> <button className="btn btn-success">{item.ngayChieuGioChieu.slice(11,16)}</button></Link>
+                        </>  
+                        )  
+                  })}
+                    </>
+                  )
+                }
               })
             }</div>
           )

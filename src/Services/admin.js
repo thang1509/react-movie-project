@@ -20,6 +20,9 @@ const adminService ={
     },
     capNhatNguoiDung:(data)=>{
         return axiosClient.put("/QuanLyNguoiDung/CapNhatThongTinNguoiDung",data)
+    },
+    xoaNguoiDung:(data)=>{
+        return axiosClient.delete(`/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${data}`)
     }
     // themPhim(data){
     //     return Axios({

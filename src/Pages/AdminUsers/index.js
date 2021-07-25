@@ -1,7 +1,7 @@
 import { Form, Formik, Field } from "formik";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { capNhatNguoiDung, danhSachNguoiDung, themNguoiDung } from "../../Redux/Action/admin";
+import { capNhatNguoiDung, danhSachNguoiDung, themNguoiDung, xoaNguoiDung } from "../../Redux/Action/admin";
 import { fetchMovies } from "../../Redux/Action/movie";
 import './index.scss'
 
@@ -165,7 +165,7 @@ export default function AdminUsers() {
              dispatch(capNhatNguoiDung(valuesUser))
            }
            const handleXoaUser=()=>{
-             dispatch({type:"XOA_USER"})
+             dispatch(xoaNguoiDung(valuesUser.taiKhoan))
            }
            return(
             <tr>
@@ -224,7 +224,33 @@ export default function AdminUsers() {
           </div>
         </div>
         <div className="modal-footer">
-          <button type="button" onClick={handleXoaUser} className="btn btn-secondary" >Xoa</button>
+         <div>
+  {/* Button trigger modal */}
+  <button type="button" className="btn btn-primary " data-toggle="modal" data-target="#modelId3">
+    Xoa
+  </button>
+  {/* Modal */}
+  <div className="modal fade" id="modelId3" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div className="modal-dialog" role="document">
+      <div className="modal-content">
+        <div className="modal-header">
+          <h5 className="modal-title">Xóa Tài Khoản</h5>
+          <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div className="modal-body">
+          Bạn muốn xóa tài khoản "{valuesUser.taiKhoan}"
+        </div>
+        <div className="modal-footer">
+          <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" onClick={handleXoaUser} className="btn btn-primary">Xác nhận</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
           <button type="button" onClick={handleCapNhat} className="btn btn-primary">Cap Nhat</button>
         </div>
       </div>

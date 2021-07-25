@@ -1,5 +1,5 @@
 import adminService from "../../Services/admin"
-import { CAP_NHAT_NGUOI_DUNG, CAP_NHAT_PHIM, DANH_SACH_NGUOI_DUNG, THEM_NGUOI_DUNG, THEM_PHIM_FAILURE, THEM_PHIM_RESPONSE, THEM_PHIM_SUCCESS, XOA_PHIM } from "./type"
+import { CAP_NHAT_NGUOI_DUNG, CAP_NHAT_PHIM, DANH_SACH_NGUOI_DUNG, THEM_NGUOI_DUNG, THEM_PHIM_FAILURE, THEM_PHIM_RESPONSE, THEM_PHIM_SUCCESS, XOA_NGUOI_DUNG, XOA_PHIM } from "./type"
 
 export function admin(values){
     return (dispatch)=>{
@@ -89,6 +89,20 @@ export function capNhatNguoiDung(values){
             }
         }).catch((error)=>{
             alert(error.response.data)
+        })
+    }
+}
+export function xoaNguoiDung(values){
+    return(dispatch)=>{
+        adminService.xoaNguoiDung(values).then((res)=>{
+            dispatch({type:XOA_NGUOI_DUNG,payload:res.data})
+            if(res){
+                return window.location.reload()
+            }
+        }).catch((error)=>{
+            if(error){
+                alert(error.response.data)
+            }
         })
     }
 }
