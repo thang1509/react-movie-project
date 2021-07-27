@@ -14,13 +14,15 @@ import App from "../../Components/App";
 
 export default function Home() {
   document.documentElement.scrollTop = 0;
-
+  document.title="TIX - TRANG CHU"
   const dispatch = useDispatch();
   const { movies, movieDetail, isLoading } = useSelector(
     (state) => state.movie
   );
   useEffect(() => {
     dispatch(fetchMovies());
+    
+    
   }, []);
 
   if (isLoading) {

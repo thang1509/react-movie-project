@@ -10,6 +10,7 @@ import { muaVe } from "../../Redux/Action/muave";
 
 export default function Checkout() {
   document.documentElement.scrollTop = 0;
+  
   const { check } = useParams();
   const { checkOut, isLoading, dsGhe,dsGheDangDat,muave} = useSelector((state) => state.checkout);
   const {credentials} = useSelector((state)=>state.user)
@@ -18,6 +19,7 @@ export default function Checkout() {
   useEffect(() => {
     dispatch(fetchCheckout(check));
   }, []);
+  document.title=`DAT VE - ${checkOut.tenPhim}`
   if(!credentials){
       return <Redirect to="/"/>
   }

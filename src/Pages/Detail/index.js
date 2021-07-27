@@ -86,11 +86,13 @@ export default function Detail() {
   const { movieDetail, lichChieu, isLoading, heThongLichChieu, dsPhimTheoNgay } = useSelector(
     (state) => state.movie
   );
+  document.title=`${movieDetail.tenPhim}`
   const {ngayChieuGioChieu}= useSelector((state)=>state.ngay)
   const {credentials} = useSelector((state)=>state.user)
   useEffect(() => {
     dispatch(fetchMovieDetail(value));
     dispatch({type:"NGAY_CHIEU"})
+    
   }, []);
 
   if (isLoading) {
