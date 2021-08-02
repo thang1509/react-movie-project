@@ -168,7 +168,7 @@ export default function AdminUsers() {
              dispatch(xoaNguoiDung(valuesUser.taiKhoan))
            }
            return(
-            <tr>
+            <tr key={index}>
             <td>{item.taiKhoan}</td>
             <td>{item.hoTen}</td>
             <td>{item.email}</td>

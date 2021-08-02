@@ -292,7 +292,7 @@ export default function AdminMovies() {
                   return (
                     <>
                     
-                    <tr>
+                    <tr key={index}>
                       <td>{item.tenPhim}</td>
                       <td>
                         <img

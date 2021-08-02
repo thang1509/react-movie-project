@@ -92,7 +92,7 @@ const values ={
                   }
                     if(item.daDat){
                         return(
-                            <div className="col-1 p-1">
+                            <div key={index} className="col-1 p-1">
                            <button><i class="fa fa-couch dadat"></i></button> 
                         </div>
                         )
@@ -140,7 +140,7 @@ const values ={
                     
                     return(
                       <>
-                      <tr>
+                      <tr key={index}>
                       <td><span>{item.tenGhe}</span></td>
                       <td>{item.giaVe}</td>
                       <td><button onClick={()=>{handleHuyGhe(item.maGhe)}}>Huy</button></td>

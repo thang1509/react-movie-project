@@ -70,7 +70,7 @@ function App() {
               <Checkout/>
             </Route>
             <Route path="*">
-              <div>Page not found</div>
+              <div style={{margin:"100px 0"}}>Page not found</div>
             </Route>
           </Switch>
         </AppLayout>

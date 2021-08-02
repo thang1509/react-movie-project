@@ -1,6 +1,6 @@
 import React, { Component, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getMovie } from "../../Components/MovieItems";
+// import { getMovie } from "../../Components/MovieItems";
 import { fetchMovieDetail } from "../../Redux/Action/movie";
 import Loading from "../Loading";
 import moduleName from "./index.scss";
@@ -8,6 +8,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
+// import ReactStars from "react-rating-stars-component";
+import Rating from '@material-ui/lab/Rating';
+
+
 
 // import Axios from 'axios'
 // import {connect} from 'react-redux'
@@ -19,6 +23,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import { Link, Redirect, useParams } from "react-router-dom";
+import { number } from "yup";
 
 function CircularProgressWithLabel(props) {
   document.documentElement.scrollTop = 0;
@@ -69,7 +74,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Detail() {
-  
   const { value } = useParams();
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -93,18 +97,24 @@ export default function Detail() {
     dispatch(fetchMovieDetail(value));
     dispatch({type:"NGAY_CHIEU"})
     
+    
   }, []);
-
   if (isLoading) {
     return <Loading />;
   }
   if(!credentials){
     return <Redirect to="/login"/>
   }
- 
+  
   ngayChieuGioChieu.map((item)=>{
     console.log(item);
   })
+ 
+  const firstExample = {
+    size: 30,
+    value: Number(movieDetail.danhGia),
+    edit: false
+  };
   return (
     <>
       <Modal
@@ -156,12 +166,11 @@ export default function Detail() {
               </div>
             </div>
             <div className="col-5">
-              <CircularProgressWithLabel
-                size={100}
-                variant="determinate"
-                value={`${movieDetail.danhGia}0`}
-              />
-              <p>Đánh giá</p>
+              <p style={{fontWeight:"bold"}}>Đánh giá</p>
+              <Box component="fieldset" mb={3} borderColor="transparent">
+        <Rating name="half-rating-read" value={movieDetail.danhGia/2} precision={0.5} readOnly />
+      </Box>
+           
             </div>
           </div>
         </div>
@@ -238,11 +247,11 @@ export default function Detail() {
       {heThongLichChieu.map((item,index)=>{
         if(index===0){
           return(
-            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href={`#${item.maHeThongRap}`} role="tab" aria-controls="v-pills-home" aria-selected="true"><img className="img-fluid" src={item.logo} alt=""/></a>
+            <a key={index} class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href={`#${item.maHeThongRap}`} role="tab" aria-controls="v-pills-home" aria-selected="true"><img className="img-fluid" src={item.logo} alt=""/></a>
           )
         }else{
           return(
-            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href={`#${item.maHeThongRap}`} role="tab" aria-controls="v-pills-profile" aria-selected="false"><img className="img-fluid" src={item.logo} alt=""/></a>
+            <a key={index} class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href={`#${item.maHeThongRap}`} role="tab" aria-controls="v-pills-profile" aria-selected="false"><img className="img-fluid" src={item.logo} alt=""/></a>
           )
         }
       })}
@@ -256,19 +265,19 @@ export default function Detail() {
       {heThongLichChieu.map((item,index)=>{
         if(index===0){
           return(
-            <div class="tab-pane fade show active" id={item.maHeThongRap} role="tabpanel" aria-labelledby="v-pills-home-tab">
+            <div key={index} class="tab-pane fade show active" id={item.maHeThongRap} role="tabpanel" aria-labelledby="v-pills-home-tab">
               <div className="row">
   <div className="col-3">
     <div className="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
       {item.cumRapChieu.map((item,index)=>{
         if(index===0){
           return(
-            <a className="nav-link active" id="v-pills-home-tab" data-toggle="pill" href={`#${item.maCumRap}`} role="tab" aria-controls="v-pills-home" aria-selected="true">{item.tenCumRap}</a>
+            <a key={index} className="nav-link active" id="v-pills-home-tab" data-toggle="pill" href={`#${item.maCumRap}`} role="tab" aria-controls="v-pills-home" aria-selected="true">{item.tenCumRap}</a>
           )
         }
         else{
           return(
-            <a className="nav-link" id="v-pills-profile-tab" data-toggle="pill" href={`#${item.maCumRap}`} role="tab" aria-controls="v-pills-profile" aria-selected="false">{item.tenCumRap}</a>
+            <a key={index} className="nav-link" id="v-pills-profile-tab" data-toggle="pill" href={`#${item.maCumRap}`} role="tab" aria-controls="v-pills-profile" aria-selected="false">{item.tenCumRap}</a>
           )
         }
       })}
@@ -279,17 +288,17 @@ export default function Detail() {
       {item.cumRapChieu.map((item,index)=>{
         if(index===0){
           return(
-            <div className="tab-pane scroll fade show active" id={item.maCumRap} role="tabpanel" aria-labelledby="v-pills-home-tab">{
+            <div key={index} className="tab-pane scroll fade show active" id={item.maCumRap} role="tabpanel" aria-labelledby="v-pills-home-tab">{
               ngayChieuGioChieu.map((item1,index)=>{
                 if(index<10){
                   const ngay=item.lichChieuPhim.filter(item=>item.ngayChieuGioChieu.slice(0,10)===item1)
                   return(
                     <>
-                    <p>{item1}</p>
+                    <p key={index}>{item1}</p>
                     {item.lichChieuPhim.map((item,index)=>{
                       if(item.ngayChieuGioChieu.slice(0,10)===item1){
                         return (
-                          <Link className="link1" to={`/checkout/${item.maLichChieu}`}> <button className="btn btn-success">{item.ngayChieuGioChieu.slice(11,16)}</button></Link>
+                          <Link key={index} className="link1" to={`/checkout/${item.maLichChieu}`}> <button className="btn btn-success">{item.ngayChieuGioChieu.slice(11,16)}</button></Link>
                         )
                       }
                     })}
@@ -335,11 +344,11 @@ export default function Detail() {
                   const ngay=item.lichChieuPhim.filter(item=>item.ngayChieuGioChieu.slice(0,10)===item1)
                   return(
                     <>
-                    <p>{item1}</p>
+                    <p key={index}>{item1}</p>
                     {ngay.map((item,index)=>{
                         return(
                         <>
-                        <Link className="link1" to={`/checkout/${item.maLichChieu}`}> <button className="btn btn-success">{item.ngayChieuGioChieu.slice(11,16)}</button></Link>
+                        <Link key={index} className="link1" to={`/checkout/${item.maLichChieu}`}> <button className="btn btn-success">{item.ngayChieuGioChieu.slice(11,16)}</button></Link>
                         </>  
                         )  
                   })}
@@ -359,19 +368,19 @@ export default function Detail() {
           )
         }else{
           return(
-            <div class="tab-pane fade" id={item.maHeThongRap} role="tabpanel" aria-labelledby="v-pills-profile-tab">
+            <div key={index} class="tab-pane fade" id={item.maHeThongRap} role="tabpanel" aria-labelledby="v-pills-profile-tab">
                 <div className="row">
   <div className="col-3">
     <div className="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
       {item.cumRapChieu.map((item,index)=>{
         if(index===0){
           return(
-            <a className="nav-link active" id="v-pills-home-tab" data-toggle="pill" href={`#${item.maCumRap}`} role="tab" aria-controls="v-pills-home" aria-selected="true">{item.tenCumRap}</a>
+            <a key={index} className="nav-link active" id="v-pills-home-tab" data-toggle="pill" href={`#${item.maCumRap}`} role="tab" aria-controls="v-pills-home" aria-selected="true">{item.tenCumRap}</a>
           )
         }
         else{
           return(
-            <a className="nav-link" id="v-pills-profile-tab" data-toggle="pill" href={`#${item.maCumRap}`} role="tab" aria-controls="v-pills-profile" aria-selected="false">{item.tenCumRap}</a>
+            <a key={index} className="nav-link" id="v-pills-profile-tab" data-toggle="pill" href={`#${item.maCumRap}`} role="tab" aria-controls="v-pills-profile" aria-selected="false">{item.tenCumRap}</a>
           )
         }
       })}
@@ -382,10 +391,10 @@ export default function Detail() {
       {item.cumRapChieu.map((item,index)=>{
         if(index===0){
           return(
-            <div className="tab-pane scroll fade show active" id={item.maCumRap} role="tabpanel" aria-labelledby="v-pills-home-tab">{
+            <div key={index} className="tab-pane scroll fade show active" id={item.maCumRap} role="tabpanel" aria-labelledby="v-pills-home-tab">{
               item.lichChieuPhim.map((item,index)=>{
                 return(
-                  <Link className="link1" to={`/checkout/${item.maLichChieu}`}> <button className="btn btn-success">{item.ngayChieuGioChieu.slice(11,16)}</button></Link>
+                  <Link key={index} className="link1" to={`/checkout/${item.maLichChieu}`}> <button className="btn btn-success">{item.ngayChieuGioChieu.slice(11,16)}</button></Link>
                 )
                 
               })
@@ -394,10 +403,10 @@ export default function Detail() {
         }
         else{
           return(
-            <div className="tab-pane scroll fade" id={item.maCumRap} role="tabpanel" aria-labelledby="v-pills-profile-tab">{
+            <div key={index} className="tab-pane scroll fade" id={item.maCumRap} role="tabpanel" aria-labelledby="v-pills-profile-tab">{
               item.lichChieuPhim.map((item,index)=>{
                 return(
-                  <Link className="link1" to={`/checkout/${item.maLichChieu}`}> <button className="btn btn-success">{item.ngayChieuGioChieu.slice(11,16)}</button></Link>
+                  <Link key={index} className="link1" to={`/checkout/${item.maLichChieu}`}> <button className="btn btn-success">{item.ngayChieuGioChieu.slice(11,16)}</button></Link>
                 )
               })
             }</div>

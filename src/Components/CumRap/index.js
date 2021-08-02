@@ -68,7 +68,7 @@ export default function CumRap() {
             {cumRap.map((item, index) => {
               if (index === 0) {
                 return (
-                  <div
+                  <div key={index}
                     class="tab-pane fade show active "
                     id={getHeThongRap(item)}
                   >
@@ -83,7 +83,7 @@ export default function CumRap() {
                               if (index === 0) {
                                 return (
                                   <>
-                                    <a
+                                    <a key={index}
                                       className="nav-link active"
                                       id="v-pills-home-tab"
                                       data-toggle="pill"
@@ -95,7 +95,7 @@ export default function CumRap() {
                                 );
                               } else {
                                 return (
-                                  <a
+                                  <a key={index}
                                     className="nav-link"
                                     id="v-pills-profile-tab"
                                     data-toggle="pill"
@@ -119,7 +119,7 @@ export default function CumRap() {
                               {item.lstCumRap.map((item, index) => {
                                 if (index === 0) {
                                   return (
-                                    <div
+                                    <div key={index}
                                       className="tab-pane fade show active"
                                       id={item.maCumRap}
                                       role="tabpanel"
@@ -127,15 +127,15 @@ export default function CumRap() {
                                     >
                                       {item.danhSachPhim.map((item, index) => {
                                         return (
-                                          <>
-                                            <p>{item.tenPhim}</p>
+                                          <div key={index}>
+                                            <p >{item.tenPhim}</p>
                                             {item.lstLichChieuTheoPhim.map(
                                               (item, index) => {
                                                 if (index < 7) {
                                                   
                                                     if(credentials){
                                                       return(
-                                                        <Link
+                                                        <Link key={index}
                                                         to={`/checkout/${item.maLichChieu}`}
                                                       >
                                                         <button className="btn btn-success m-1">
@@ -149,7 +149,7 @@ export default function CumRap() {
                                                     }
                                                     else{
                                                       return(
-                                                        <Link
+                                                        <Link key={index}
                                                         to="/login"
                                                       >
                                                         <button className="btn btn-success m-1">
@@ -174,14 +174,14 @@ export default function CumRap() {
                                                 }
                                               }
                                             )}
-                                          </>
+                                          </div>
                                         );
                                       })}
                                     </div>
                                   );
                                 } else {
                                   return (
-                                    <div
+                                    <div key={index}
                                       className="tab-pane fade"
                                       id={item.maCumRap}
                                       role="tabpanel"
@@ -189,13 +189,13 @@ export default function CumRap() {
                                     >
                                       {item.danhSachPhim.map((item, index) => {
                                         return (
-                                          <>
+                                          <div key={index}>
                                             <p>{item.tenPhim}</p>
                                             {item.lstLichChieuTheoPhim.map(
                                               (item, index) => {
                                                 if (index < 7) {
                                                   return (
-                                                    <Link
+                                                    <Link key={index}
                                                       to={`/checkout/${item.maLichChieu}`}
                                                     >
                                                       <button className="btn btn-success m-1">
@@ -209,7 +209,7 @@ export default function CumRap() {
                                                 }
                                               }
                                             )}
-                                          </>
+                                          </div>
                                         );
                                       })}
                                     </div>
