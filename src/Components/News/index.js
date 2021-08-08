@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import classnames from 'classnames';
 import moduleName from './index.scss'
 import img from '../../Assets/img/lat-mat-48h-16177782153424.png'
 import img1 from '../../Assets/img/mortal-kombat-cuoc-chien-sinh-tu-goi-ten-nhung-phim-dien-anh-noi-tieng-duoc-chuyen-the-tu-cac-tua-game-dinh-dam-16170160290762.png'
@@ -6,8 +8,15 @@ import img2 from '../../Assets/img/promising-young-woman-bong-hong-nuoc-anh-care
 import img3 from '../../Assets/img/khai-truong-rap-xin-gia-ngon-chuan-xi-tai-sai-gon-16115477671555.jpg'
 
 export default function News() {
+  
+    const [activeTab, setActiveTab] = useState('1');
+  
+    const toggle = tab => {
+      if(activeTab !== tab) setActiveTab(tab);
+    }
+  
     return (
-       
+       <>
  <div className="container news">
   <ul className="nav nav-pills  mb-3" id="pills-tab" role="tablist">
     <li className="nav-item" role="presentation">
@@ -121,7 +130,57 @@ export default function News() {
         </div>
     </div>
   </div>
+ 
 </div>
+ <div>
+ <Nav tabs>
+   <NavItem>
+     <NavLink
+     type="button"
+       className={classnames({ active: activeTab === '1' })}
+       onClick={() => { toggle('1'); }}
+     >
+       Tab1
+     </NavLink>
+   </NavItem>
+   <NavItem>
+     <NavLink
+       className={classnames({ active: activeTab === '2' })}
+       onClick={() => { toggle('2'); }}
+     >
+       More Tabs
+     </NavLink>
+   </NavItem>
+ </Nav>
+ <TabContent activeTab={activeTab}>
+   <TabPane tabId="1">
+     <Row>
+       <Col sm="12">
+         <h4>Tab 1 Contents</h4>
+       </Col>
+     </Row>
+   </TabPane>
+   <TabPane tabId="2">
+     <Row>
+       <Col sm="6">
+         <Card body>
+           <CardTitle>Special Title Treatment</CardTitle>
+           <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+           <Button>Go somewhere</Button>
+         </Card>
+       </Col>
+       <Col sm="6">
+         <Card body>
+           <CardTitle>Special Title Treatment</CardTitle>
+           <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+           <Button>Go somewhere</Button>
+         </Card>
+       </Col>
+     </Row>
+   </TabPane>
+ </TabContent>
+</div>
+</>
 
 
 
