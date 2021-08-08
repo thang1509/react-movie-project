@@ -28,10 +28,10 @@ export default function CumRap() {
   
   return (
     <div className="container cumRap "id="cumrap">
-      <div className="row">
-        <div className="col-2">
+      <div class="row">
+        <div class="col-2">
           <div
-            className="nav flex-column nav-pills"
+            class="nav flex-column nav-pills"
             id="v-pills-tab"
             role="tablist"
             aria-orientation="vertical"
@@ -40,36 +40,36 @@ export default function CumRap() {
               if (index === 0) {
                 return (
                   <a
-                  className="nav-link active"
+                    class="nav-link active"
                     id="v-pills-home-tab"
                     data-toggle="pill"
                     href={`#${getHeThongRap(item)}`}
                   >
-                    <img className="img-fluid" src={item.logo} alt="img" />
+                    <img className="img-fluid" src={item.logo} alt="" />
                   </a>
                 );
               } else {
                 return (
                   <a
-                  className="nav-link"
+                    class="nav-link"
                     id="v-pills-profile-tab"
                     data-toggle="pill"
                     href={`#${getHeThongRap(item)}`}
                   >
-                    <img className="img-fluid" src={item.logo} alt="img" />
+                    <img className="img-fluid" src={item.logo} alt="" />
                   </a>
                 );
               }
             })}
           </div>
         </div>
-        <div className="col-10">
-          <div className="tab-content" id="v-pills-tabContent">
+        <div class="col-10">
+          <div class="tab-content" id="v-pills-tabContent">
             {cumRap.map((item, index) => {
               if (index === 0) {
                 return (
                   <div key={index}
-                  className="tab-pane fade show active "
+                    class="tab-pane fade show active "
                     id={getHeThongRap(item)}
                   >
                     <div className="row">
@@ -225,7 +225,7 @@ export default function CumRap() {
                 );
               } else {
                 return (
-                  <div className="tab-pane fade " id={getHeThongRap(item)}>
+                  <div class="tab-pane fade " id={getHeThongRap(item)}>
                     <div className="row">
                       <div className="col-6">
                         <div
