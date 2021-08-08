@@ -1,6 +1,6 @@
 import React from 'react'
 import carousel1 from '../../Assets/img/ban-tay-diet-quy-evil-expeller-16177781815781.png'
-import index from './index.scss'
+import './index.scss'
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -53,7 +53,7 @@ export default function Carousel() {
   </ol>
   <div className="carousel-inner">
     <div className="carousel-item active ">
-     <a className="w-100" type="button"  onClick={handleOpen}><img className="img-fluid w-100" src={carousel1} alt />
+     <a className="w-100" type="button"  onClick={handleOpen}><img className="img-fluid w-100" src={carousel1} alt="img" />
 </a>
 
 <Modal
@@ -75,12 +75,12 @@ export default function Carousel() {
          
         </Fade>
       </Modal>
-<div class="button">
-        <a  className="w-100" type="button"  onClick={handleOpen}><i class="fa fa-play-circle"></i></a>
+<div className="button">
+        <a  className="w-100" type="button"  onClick={handleOpen}><i className="fa fa-play-circle"></i></a>
             </div>
     </div>
     <div className="carousel-item">
-    <a className="w-100" type="button"  onClick={handleOpen}><img className="img-fluid w-100" src={carousel1} alt />
+    <a className="w-100" type="button"  onClick={handleOpen}><img className="img-fluid w-100" src={carousel1} alt="" />
 </a>
 
 <Modal
@@ -102,12 +102,12 @@ export default function Carousel() {
          
         </Fade>
       </Modal>
-<div class="button">
-        <a  className="w-100" type="button"  onClick={handleOpen}><i class="fa fa-play-circle"></i></a>
+<div className="button">
+        <a  className="w-100" type="button"  onClick={handleOpen}><i className="fa fa-play-circle"></i></a>
             </div>
     </div>
     <div className="carousel-item">
-    <a className="w-100" type="button"  onClick={handleOpen}><img className="img-fluid w-100" src={carousel1} alt />
+    <a className="w-100" type="button"  onClick={handleOpen}><img className="img-fluid w-100" src={carousel1} alt="" />
 </a>
 
 <Modal
@@ -129,8 +129,8 @@ export default function Carousel() {
          
         </Fade>
       </Modal>
-<div class="button">
-        <a  className="w-100" type="button"  onClick={handleOpen}><i class="fa fa-play-circle"></i></a>
+<div className="button">
+        <a  className="w-100" type="button"  onClick={handleOpen}><i className="fa fa-play-circle"></i></a>
             </div>
     </div>
   </div>

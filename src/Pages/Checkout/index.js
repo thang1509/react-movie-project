@@ -93,7 +93,7 @@ const values ={
                     if(item.daDat){
                         return(
                             <div key={index} className="col-1 p-1">
-                           <button><i class="fa fa-couch dadat"></i></button> 
+                           <button><i className="fa fa-couch dadat"></i></button> 
                         </div>
                         )
                     }else{

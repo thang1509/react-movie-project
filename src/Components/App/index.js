@@ -16,7 +16,7 @@ export default function App() {
                 <button className="btn btn-success">App miễn phí - tải về ngay</button>
             </div>
             <div className="right col-6">
-                <img className="img img-fluid "  src={img} alt=""/>
+                <img className="img img-fluid "  src={img} alt="img"/>
                 <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
                <ol className="carousel-indicators">
   <li  data-target="#carouselExampleControls" data-slide-to={0} className="slide active" />

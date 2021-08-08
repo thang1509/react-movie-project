@@ -42,7 +42,7 @@ export default function MovieItems(props) {
     return (
         <div className="movie-item card p-2">
              <Link className="tag"  to={`/detail/${item.maPhim}`}>
-                <img src={item.hinhAnh} style={{width:'100%',height:'350px'}}/>
+                <img src={item.hinhAnh} style={{width:'100%',height:'350px'}} alt="img"/>
                 <p className="lead">{item.tenPhim}</p>
                
                 <div>
