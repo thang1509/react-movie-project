@@ -10,10 +10,10 @@ export default function AdminRoute({children, ...props}) {
     if(!credentials){
         return <Redirect to={`/login?redirectTo=${props.path}`}/>
     }
-
     if(credentials.maLoaiNguoiDung !== "QuanTri"){
         return <Redirect to="/"/>
     }
+   
 
     return <Route {...props}>
         {children}

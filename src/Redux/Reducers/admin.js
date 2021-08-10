@@ -106,7 +106,23 @@ function adminReducer(state=initialState,action){
             return{...state,dsNguoiDung:action.payload}
         }
         case "TIM_USER":{
-            state.findUser=state.dsNguoiDung.find(item=>item.taiKhoan===action.payload)
+            // state.findUser=state.dsNguoiDung.find(item=>item.taiKhoan===action.payload)
+            const dsCanTim = state.dsNguoiDung.filter((item=>item.taiKhoan===action.payload))
+            const dsTimDuoc=[]
+            dsCanTim.map((item,index)=>{
+                dsTimDuoc.push(item)
+            })
+            if(action.payload===""){
+                state.findUser=null
+                return {...state}
+            }
+            if(dsTimDuoc===false){
+                return state.findUser=null
+            }
+            else{
+                state.findUser=dsTimDuoc
+            }
+            state.findUser=[...state.findUser]
             return{...state}
         }
         case "UPDATE_USER":{

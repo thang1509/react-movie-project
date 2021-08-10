@@ -121,14 +121,22 @@ export default function AdminUsers() {
          </tr>
        </thead>
        {findUser?<tbody>
-        <tr>
-            <td>{findUser.taiKhoan}</td>
-            <td>{findUser.hoTen}</td>
-            <td>{findUser.email}</td>
-            <td>{findUser.soDt}</td>
-            <td>{findUser.matKhau}</td>
-            <td>{findUser.maLoaiNguoiDung}</td>
-            <th></th>
+        <tr>{
+          findUser.map((item,index)=>{
+            return(
+              <>
+              <td>{item.taiKhoan}</td>
+              <td>{item.hoTen}</td>
+              <td>{item.email}</td>
+              <td>{item.soDt}</td>
+              <td>{item.matKhau}</td>
+              <td>{item.maLoaiNguoiDung}</td>
+              <th></th>
+              </>
+            )
+          })
+          }
+           
           </tr>
        </tbody>:<tbody>
          {dsNguoiDung.map((item,index)=>{
