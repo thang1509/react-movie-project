@@ -111,13 +111,11 @@ function adminReducer(state=initialState,action){
             const dsTimDuoc=[]
             dsCanTim.map((item,index)=>{
                 dsTimDuoc.push(item)
+                return{...state}
             })
             if(action.payload===""){
                 state.findUser=null
                 return {...state}
-            }
-            if(dsTimDuoc===false){
-                return state.findUser=null
             }
             else{
                 state.findUser=dsTimDuoc

@@ -18,6 +18,41 @@ export default function AdminUsers() {
   
     dispatch({type:"TIM_USER",payload:value})
   }
+  const handleChange1=(evt)=>{
+    const {value} = evt.target
+    dispatch({type:"CHANGE_USER1",payload:value})
+   }
+   const handleChange2=(evt)=>{
+    const {value} = evt.target
+    dispatch({type:"CHANGE_USER2",payload:value})
+   }
+   const handleChange3=(evt)=>{
+    const {value} = evt.target
+    dispatch({type:"CHANGE_USER3",payload:value})
+   }
+   const handleChange4=(evt)=>{
+    const {value} = evt.target
+    dispatch({type:"CHANGE_USER4",payload:value})
+   }
+   const handleChange5=(evt)=>{
+    const {value} = evt.target
+    dispatch({type:"CHANGE_USER5",payload:value})
+   }
+   const handleChange6=(evt)=>{
+    const {value} = evt.target
+    dispatch({type:"CHANGE_USER6",payload:value})
+   }
+   const handleUser=(item)=>{
+     console.log(item);
+    dispatch({type:"UPDATE_USER",payload:item})
+   }
+   const handleCapNhat=()=>{
+     console.log(valuesUser);
+     dispatch(capNhatNguoiDung(valuesUser))
+   }
+   const handleXoaUser=()=>{
+     dispatch(xoaNguoiDung(valuesUser.taiKhoan))
+   }
   return (
    <div className="my-5 adminuser">
      <div className="headerAdminUser">
@@ -121,60 +156,109 @@ export default function AdminUsers() {
          </tr>
        </thead>
        {findUser?<tbody>
+
         <tr>{
           findUser.map((item,index)=>{
             return(
               <>
-              <td>{item.taiKhoan}</td>
-              <td>{item.hoTen}</td>
-              <td>{item.email}</td>
-              <td>{item.soDt}</td>
-              <td>{item.matKhau}</td>
-              <td>{item.maLoaiNguoiDung}</td>
-              <th></th>
-              </>
+<td>{item.taiKhoan}</td>
+            <td>{item.hoTen}</td>
+            <td>{item.email}</td>
+            <td>{item.soDt}</td>
+            <td>{item.matKhau}</td>
+            <td>{item.maLoaiNguoiDung}</td>
+            <th style={{width:"5%"}}><div>
+  {/* Button trigger modal */}
+  <button type="button" onClick={()=>{handleUser(findUser)}} className="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
+  <i class="fa fa-edit"></i>
+  </button>
+  {/* Modal */}
+  <div className="modal fade" id="exampleModal1" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div className="modal-dialog">
+      <div className="modal-content">
+        <div className="modal-header">
+          <h5 className="modal-title" id="exampleModalLabel">Chinh Sua</h5>
+          <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div className="modal-body">
+          <div className="form-group">
+            <label>Tai Khoan</label>
+            <input type="text"  onChange={handleChange1} value={valuesUser.taiKhoan} className="form-control" />
+          </div>
+          <div className="form-group">
+            <label>Mat Khau</label>
+            <input type="text" onChange={handleChange2}  value={valuesUser.matKhau} className="form-control" />
+          </div>
+          <div className="form-group">
+            <label>Email</label>
+            <input type="text"onChange={handleChange3} value={valuesUser.email} className="form-control" />
+          </div>
+          <div className="form-group">
+            <label>So Dien Thoai</label>
+            <input type="text"onChange={handleChange4} value={valuesUser.soDt} className="form-control" />
+          </div>
+          <div className="form-group">
+            <label>Ma Nhom</label>
+            <input disabled style={{cursor:"not-allowed"}} type="text" value={valuesUser.maNhom} className="form-control" />
+          </div>
+          <div class="form-group">
+            <label>Ma Loai Nguoi Dung</label>
+            <select class="form-control" onChange={handleChange5} value={valuesUser.maLoaiNguoiDung}>
+              <option>QuanTri</option>
+              <option>KhachHang</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label>Ho Ten</label>
+            <input type="text"onChange={handleChange6} value={valuesUser.hoTen} className="form-control" />
+          </div>
+        </div>
+        <div className="modal-footer">
+         <div>
+  {/* Button trigger modal */}
+  <button type="button" className="btn btn-primary " data-toggle="modal" data-target="#modelId3">
+    Xoa
+  </button>
+  {/* Modal */}
+  <div className="modal fade" id="modelId3" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div className="modal-dialog" role="document">
+      <div className="modal-content">
+        <div className="modal-header">
+          <h5 className="modal-title">Xóa Tài Khoản</h5>
+          <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div className="modal-body">
+          Bạn muốn xóa tài khoản "{valuesUser.taiKhoan}"
+        </div>
+        <div className="modal-footer">
+          <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" onClick={handleXoaUser} className="btn btn-primary">Xác nhận</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+          <button type="button" onClick={handleCapNhat} className="btn btn-primary">Cap Nhat</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</th>
+</>
             )
           })
           }
-           
+            
           </tr>
        </tbody>:<tbody>
          {dsNguoiDung.map((item,index)=>{
-           const handleChange1=(evt)=>{
-            const {value} = evt.target
-            dispatch({type:"CHANGE_USER1",payload:value})
-           }
-           const handleChange2=(evt)=>{
-            const {value} = evt.target
-            dispatch({type:"CHANGE_USER2",payload:value})
-           }
-           const handleChange3=(evt)=>{
-            const {value} = evt.target
-            dispatch({type:"CHANGE_USER3",payload:value})
-           }
-           const handleChange4=(evt)=>{
-            const {value} = evt.target
-            dispatch({type:"CHANGE_USER4",payload:value})
-           }
-           const handleChange5=(evt)=>{
-            const {value} = evt.target
-            dispatch({type:"CHANGE_USER5",payload:value})
-           }
-           const handleChange6=(evt)=>{
-            const {value} = evt.target
-            dispatch({type:"CHANGE_USER6",payload:value})
-           }
-           const handleUser=(item)=>{
-             console.log(item);
-            dispatch({type:"UPDATE_USER",payload:item})
-           }
-           const handleCapNhat=()=>{
-             console.log(valuesUser);
-             dispatch(capNhatNguoiDung(valuesUser))
-           }
-           const handleXoaUser=()=>{
-             dispatch(xoaNguoiDung(valuesUser.taiKhoan))
-           }
+          
            return(
             <tr key={index}>
             <td>{item.taiKhoan}</td>
